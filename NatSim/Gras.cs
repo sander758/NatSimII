@@ -60,7 +60,7 @@ namespace NatSimII
                 puntX = puntX + zaaiAfstand;
             }
         }
-        public static void Zaaien(Point locatie, Graphics papier, Plant plant) {
+        public static void Zaaien(Point locatie, Graphics papier) {
             Zaaien(locatie, papier, 150, 46, 15);
         }
     }

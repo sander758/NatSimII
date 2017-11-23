@@ -151,11 +151,12 @@ namespace NatSimII
 		{
 			if (chkZaai.Checked && rdbGras.Checked)
 			{
-//				Gras.Zaaien(e.Location, pbWereld.CreateGraphics());
+				Gras.Zaaien(e.Location, pbWereld.CreateGraphics());
 			}
 			else
 			{
 				lblInformatie.Text = "";
+				natuur.LevenGeraakt(e.Location);
 			}
 		}
 	}
