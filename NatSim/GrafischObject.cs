@@ -76,7 +76,7 @@ namespace NatSimII
             WisKleur = Color.PaleGoldenrod;
 
             Tekengebied = new Rechthoek(); // Oorspronkelijk geen default constructor in Rechthoek
-            _id = new Guid();
+	        _id = Guid.NewGuid();
 
         }
 
