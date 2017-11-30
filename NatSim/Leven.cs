@@ -41,7 +41,15 @@ namespace NatSimII
             _levensduur = levensduur;
             _verouder = new Timer();
             _verouder.Interval = _aantalTicksPerSeconde * VerhoudingTicksJaren;
-			_verouder.Start();
+	        try
+	        {
+		        _verouder.Start();
+			}
+	        catch (Exception e)
+	        {
+		        Console.WriteLine(e);
+		        
+	        }
 			_verouder.Tick += _verouder_Tick;
 			
         }
@@ -74,18 +82,6 @@ namespace NatSimII
 	    {
 		    if (IsPlant) return (Plant) this;
 		    return null;
-	    }
-
-	    public Gras ToGras()
-	    {
-		    if (this.GetType() == typeof(Gras))
-		    {
-			    return (Gras) this;
-		    }
-		    else
-		    {
-			    return null;
-		    }
 	    }
 
 	    public SoortLeven ToLower()

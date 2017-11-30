@@ -23,7 +23,7 @@ namespace NatSimII
                     {
                         // het dier gaat dood maar ook de plant
                         this.Sterf();
-                        leven.Sterf();
+                     //   leven.Sterf();
                     }
                     else
                     {

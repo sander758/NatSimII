@@ -28,6 +28,43 @@ namespace NatSimII
 		           + Environment.NewLine + Environment.NewLine + "Levensduur: " + Levensduur
 		           + Environment.NewLine + Environment.NewLine + "Bloeiwijze: " + BloeiwijzePlant
 		           + Environment.NewLine + Environment.NewLine + "Locatie: " + Locatie.ToString();
+		}
+
+	    public Gras ToGras()
+	    {
+		    if (this.GetType() == typeof(Gras))
+		    {
+			    return (Gras)this;
+		    }
+		    else
+		    {
+			    return null;
+		    }
 	    }
-    }
+
+		public Venijnboom ToVenijnboom()
+	    {
+			if (this.GetType() == typeof(Venijnboom))
+			{
+				return (Venijnboom) this;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+	    public Vingerhoedskruid ToToVingerhoedskruid()
+		{
+			if (this.GetType() == typeof(Vingerhoedskruid))
+			{
+				return (Vingerhoedskruid)this;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+	}
 }

@@ -105,6 +105,16 @@ namespace NatSimII
 						Gras gras = new Gras(locatie);
 						Add(gras);
 					}
+					else if (plant.ToVenijnboom() != null)
+					{
+						Venijnboom boom = new Venijnboom(locatie);
+						Add(boom);
+					}
+					else if (plant.ToToVingerhoedskruid() != null)
+					{
+						Vingerhoedskruid vingerhoedskruid = new Vingerhoedskruid(locatie);
+						Add(vingerhoedskruid);
+					}
 
 					puntY = puntY + zaaiAfstand;
 				}

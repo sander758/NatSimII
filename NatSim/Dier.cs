@@ -71,6 +71,7 @@ namespace NatSimII
 			    {
 				    this.SnelheidObject = this.SnelheidObject.KeerOm();
 				    dier.SnelheidObject = dier.SnelheidObject.KeerOm();
+
 			    }
 				Eet(leven);
 

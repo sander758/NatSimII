@@ -134,24 +134,36 @@ namespace NatSimII
 
 	    private void rdbGras_CheckedChanged(object sender, EventArgs e)
 	    {
-		    if (rdbGras.Checked) soortDier = SoortLeven.Gras;
+		    if (rdbGras.Checked) soortPlant = SoortLeven.Gras;
 		}
 
 		private void rdbVenijnBoom_CheckedChanged(object sender, EventArgs e)
 		{
-			if (rdbVenijnBoom.Checked) soortDier = SoortLeven.Venijnboom;
+			if (rdbVenijnBoom.Checked) soortPlant = SoortLeven.Venijnboom;
 		}
 
 		private void rdbVingerhoedskruid_CheckedChanged(object sender, EventArgs e)
 		{
-			if (rdbVingerhoedskruid.Checked) soortDier = SoortLeven.Vingerhoedskruid;
+			if (rdbVingerhoedskruid.Checked) soortPlant = SoortLeven.Vingerhoedskruid;
 		}
 
 		private void pbWereld_MouseMove(object sender, MouseEventArgs e)
 		{
-			if (chkZaai.Checked && rdbGras.Checked)
+			if (chkZaai.Checked)
 			{
-				natuur.Zaaien(e.Location, pbWereld.CreateGraphics(), new Gras());
+				if (rdbGras.Checked)
+				{
+					natuur.Zaaien(e.Location, pbWereld.CreateGraphics(), new Gras());
+				}
+				else if (rdbVenijnBoom.Checked)
+				{
+					natuur.Zaaien(e.Location, pbWereld.CreateGraphics(), new Venijnboom());
+				}
+				else if (rdbVingerhoedskruid.Checked)
+				{
+					natuur.Zaaien(e.Location, pbWereld.CreateGraphics(), new Vingerhoedskruid());
+				}
+				
 			}
 			else
 			{
