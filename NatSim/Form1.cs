@@ -151,7 +151,7 @@ namespace NatSimII
 		{
 			if (chkZaai.Checked && rdbGras.Checked)
 			{
-				Gras.Zaaien(e.Location, pbWereld.CreateGraphics());
+				natuur.Zaaien(e.Location, pbWereld.CreateGraphics(), new Gras());
 			}
 			else
 			{

@@ -64,6 +64,46 @@ namespace NatSimII
 			OnEinde();
 		}
 
+	    public Dier ToDier()
+	    {
+		    if (IsDier) return (Dier) this;
+		    return null;
+	    }
+
+	    public Plant ToPlant()
+	    {
+		    if (IsPlant) return (Plant) this;
+		    return null;
+	    }
+
+	    public Gras ToGras()
+	    {
+		    if (this.GetType() == typeof(Gras))
+		    {
+			    return (Gras) this;
+		    }
+		    else
+		    {
+			    return null;
+		    }
+	    }
+
+	    public SoortLeven ToLower()
+	    {
+		    switch (NederlandseNaam.ToLower())
+		    {
+				case "beer": return SoortLeven.Beer;
+			    case "gras": return SoortLeven.Gras;
+			    case "l<oe": return SoortLeven.Koe;
+			    case "konijn": return SoortLeven.Konijn;
+			    case "lynx": return SoortLeven.Lynx;
+			    case "venijnboom": return SoortLeven.Venijnboom;
+			    case "vingerhoedskruid": return SoortLeven.Vingerhoedskruid;
+			    default: return SoortLeven.Gras;
+
+			}
+		}
+
         public bool IsPlant {        
             // deze code kijkt of het type van het object erft van Plant
             // GetType() bepaalt type object, IsSubclassOf bepaalt of het erft van Plant

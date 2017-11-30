@@ -61,7 +61,34 @@ namespace NatSimII
 			return new Point(berekendeX, berekendeY);
 	    }
 
-	    public void Beweeg()
+
+	    public bool IsBotsing(Leven leven)
+	    {
+		    if (this.Tekengebied.Overlap(leven.Tekengebied))
+		    {
+			    Dier dier = leven.ToDier();
+			    if (dier != null)
+			    {
+				    this.SnelheidObject = this.SnelheidObject.KeerOm();
+				    dier.SnelheidObject = dier.SnelheidObject.KeerOm();
+			    }
+				Eet(leven);
+
+			    return true;
+		    }
+		    return false;
+	    }
+
+
+	    public override string ToString()
+	    {
+		    return "Latijnse naam: " + LatijnseNaam + Environment.NewLine
+		           + Environment.NewLine + "Nederlandse naam: " + NederlandseNaam
+		           + Environment.NewLine + Environment.NewLine + "Levensduur: " + Levensduur
+		           + Environment.NewLine + Environment.NewLine + "Locatie: " + Locatie.ToString();
+	    }
+
+		public void Beweeg()
 	    {
 		    Verwijder();
 		    Locatie = Stap();

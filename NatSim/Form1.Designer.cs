@@ -190,7 +190,7 @@
 			this.lblInformatie.BackColor = System.Drawing.Color.Khaki;
 			this.lblInformatie.Location = new System.Drawing.Point(483, 31);
 			this.lblInformatie.Name = "lblInformatie";
-			this.lblInformatie.Size = new System.Drawing.Size(103, 73);
+			this.lblInformatie.Size = new System.Drawing.Size(103, 173);
 			this.lblInformatie.TabIndex = 0;
 			// 
 			// pbWereld

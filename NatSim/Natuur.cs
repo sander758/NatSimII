@@ -27,6 +27,18 @@ namespace NatSimII
 			leven.OpObject += Leven_OpObject;
 		}
 
+		public void CollisionDetection(Dier dier)
+		{
+			for (int i = 0; i < this.Count; i++)
+			{
+				if (dier.Id != this[i].Id)
+				{
+					dier.IsBotsing(this[i]);
+				}
+			}
+		}
+	
+
 		private void Leven_OpObject(object sender, EventArgs e)
 		{
 			if (Getroffen != null)
@@ -58,15 +70,52 @@ namespace NatSimII
 			_levensKlok.Interval = 10;
 		}
 
-		public void _levensKlok_Tick(object sender, EventArgs e)
+		private void _levensKlok_Tick(object sender, EventArgs e)
 		{
-			foreach (Leven leven in this)
+			for (int i = 0; i < this.Count; i++)
 			{
-				if (leven.IsDier)
+				Dier dier = this[i].ToDier();
+				if (dier != null)
 				{
-					((Dier) leven).Beweeg();
+					dier.Beweeg();
+					CollisionDetection(dier);
 				}
 			}
+		}
+
+		// public method om te kunnen zaaien
+		public void Zaaien(Point locatie, Graphics papier, int lengte, int breedte, int zaaiAfstand, Plant plant)
+		{
+			int puntX = locatie.X - lengte / 2;
+			int puntY = locatie.Y - breedte / 2;
+			
+			Point oorspronkelijkeLocatie = locatie;
+			int startpuntY = puntY;
+			
+			lengte = puntX + lengte;
+			breedte = puntY + lengte;
+			while (puntX < lengte)
+			{
+				while (puntY < breedte)
+				{
+					locatie = new Point(puntX, puntY);
+
+					if (plant.ToGras() != null)
+					{
+						Gras gras = new Gras(locatie);
+						Add(gras);
+					}
+
+					puntY = puntY + zaaiAfstand;
+				}
+				puntY = startpuntY;
+				puntX = puntX + zaaiAfstand;
+			}
+		}
+
+		public void Zaaien(Point locatie, Graphics papier, Plant plant)
+		{
+			Zaaien(locatie, papier, 150, 46, 15, plant);
 		}
 	}
 
